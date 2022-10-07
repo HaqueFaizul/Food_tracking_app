@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration Page</title>
+</head>
+<body>
+<h1>Sign Up Page</h1>
+<form method="POST" action="usersignup" >
+    {% csrf_token %}
+    <table >
+        <tr>
+            <td>First NAme</td>
+            <td><input type="text" name="fname" ></td>
+        </tr>
+        <tr>
+            <td>Last NAme</td>
+            <td><input type="text" name="lname" ></td>
+        </tr>
+        <tr>
+            <td>User Name</td>
+            <td><input type="text" name="uname" ></td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td><input type="text" name="email" ></td>
+        </tr>
+        <tr>
+            <td>Password</td>
+            <td><input type="password" name="passwd" ></td>
+        </tr>
+        <tr>
+            <td>Confirmed Password</td>
+            <td><input type="text" name="cpasswd"></td>
+        </tr>
+        <tr>
+            <td><button type="submit" value="Sign Up">Sign Up</button></td>
+        </tr>
+    </table>
+    {% for m in messages %}
+        <h1>{{m}}</h1>
+    {% endfor %}
+</form>
+</body>
+</html>

@@ -1,0 +1,45 @@
+Modules and Packages(folder which consist of python files)
+--------------------------------------------------------------------------------
+A module is a python file which consists of  functions,class,loops etc
+
+Keep the number of lines organized
+
+Resue the code
+
+How to access from one module to another module
+-----------------------------------------------------------------
+a)import packageName.fileName
+
+b)from packageName.fileName import functName,className
+
+c)from packageName.fileName import * 
+
+Activity:
+
+1. Write a program that reads a number, then convert it into Octal and Hexadecimalequivalent number using build in functions of python
+2. Create Three different module which consist of three class and import all of these into a single module 
+
+---------------------------------------------------------
+Random Number generate:
+import random
+1. print(random.random())---> it will generate random number from 0.0 t0 1.0
+
+2. print(random.randint(15,35))
+
+3. To generate random floating point value
+	print(random.random()*(35-15)+15)
+
+
+Activity: In a School fest, three student out of 100 have to present gift to the guest. Help the school authority to choose three student randomly
+
+
+Regular Expression
+-------------------------
+---It is mainly used for searching a pattern in the string...
+
+import  re 
+
+a)findAll()
+b)search()
+c)sub()
+d)split()

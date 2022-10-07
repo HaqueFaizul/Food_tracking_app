@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Form</title>
+</head>
+<body>
+<table>
+    <form action="display" method="post">
+        {% csrf_token %}
+        <tr>
+            <td><input type="text" name="sname"></td>
+        </tr>
+        <tr>
+            <td>Gender:<input type="radio" name="gender" value="Male">Male
+                <input type="radio" name="gender" value="Female">FeMale
+            </td>
+        </tr>
+        <tr>
+            <td>Language Known:<input type="checkbox" name="language" value="English">English
+                <input type="checkbox" name="language" value="Hindi">Hindi
+                <input type="checkbox" name="language" value="Urdu">Urdu
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <select name="subject">Subject Taken:
+                    <option value="Select Language">Select Language</option>
+                    <option value="Python">Python</option>
+                    <option value="Ruby">Ruby</option>
+                    <option value="Jave">Java</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td><button type="submit">Submit</button></td>
+        </tr>
+    </form>
+</table>
+</body>
+</html>

@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<section class="section-content padding-y bg">
+<div class="container">
+
+<!-- ============================ COMPONENT 1 ================================= -->
+
+<div class="row">
+	<aside class="col-lg-6">
+        <div class="card">
+            <div class="card-body">
+                <h1>Billing Address</h1>
+                <form action="#">
+                    <div clas="form-row">
+                        <label for="">First Name</label>
+                        <input type="text" name="fname" class="form-control" required>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+</div> <!-- card.// -->
+
+	</aside> <!-- col.// -->
+	<aside class="col-lg-6">
+
+		<div class="card">
+		<div class="card-body">
+            <table class="table table-borderless table-shopping-cart">
+                <thead class="text-muted">
+                <tr class="small text-uppercase">
+                  <th scope="col">Product</th>
+                  <th scope="col" width="120">Quantity</th>
+                  <th scope="col" width="120">Price</th>
+                  <th scope="col" class="text-right" width="200"> </th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for ci in cart_item %}
+                <tr>
+                    <td>
+                        <figure class="itemside align-items-center">
+                            <div class="aside"><img src="{{ ci.product.images.url }}" class="img-sm"></div>
+                            <figcaption class="info">
+                                <a href="{{ ci.product.get_url }}" class="title text-dark">{{ci.product.product_name}}</a>
+                                <p class="text-muted small">Color: 25 Mpx <br> Size: Canon</p>
+                            </figcaption>
+                        </figure>
+                    </td>
+                    <td>
+                        <!-- col.// -->
+                                    <div class="col">
+                                        <div class="input-group input-spinner">
+                                            <div class="input-group-prepend">
+                                            <a href="{% url 'remove_cart' ci.product.id %}" class="btn btn-light" type="button" id="button-plus"> <i class="fa fa-minus"></i> </a>
+                                            </div>
+                                            <input type="text" class="form-control"  value="{{ci.quantity}}">
+                                            <div class="input-group-append">
+                                            <a href="{% url 'add_cart' ci.product.id %}" class="btn btn-light" type="button" id="button-minus"> <i class="fa fa-plus"></i> </a>
+                                            </div>
+                                        </div> <!-- input-group.// -->
+                                    </div> <!-- col.// -->
+                    </td>
+                    <td>
+                        <div class="price-wrap">
+                            <var class="price">${{ci.sub_total}}</var>
+                            <small class="text-muted"> ${{ci.product.price}} each </small>
+                        </div> <!-- price-wrap .// -->
+                    </td>
+                    <td class="text-right">
+                    <a href="{% url 'remove_cart_item' ci.product.id %}" class="btn btn-danger"> Remove</a>
+                    </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+                </table>
+
+			<a href="./place-order.html" class="btn btn-primary btn-block"> Place order </a>
+			<a href="./store.html" class="btn btn-light btn-block">Continue Shopping</a>
+		</div> <!-- card-body.// -->
+		</div> <!-- card.// -->
+    </aside> <!-- col.// -->
+</div> <!-- row.// -->
+<!-- ============================ COMPONENT 1 END .// ================================= -->
+
+</div> <!-- container .//  -->
+</section>
+
+{% endblock %}

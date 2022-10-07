@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration Page</title>
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/mycss.css' %}" rel="stylesheet">
+</head>
+<body>
+<h1 class="body">Registration Form</h1>
+<div class="container">
+<form method="post" action="register" >
+    {% csrf_token %}
+    <table >
+        <tr>
+            <td><label for="exampleDataList" class="form-label">First NAme</label></td>
+            <td><input type="text" name="fname" class="form-control" placeholder="Enter your first name..."></td>
+        </tr>
+        <tr>
+            <td>Last NAme</td>
+            <td><input type="text" name="lname" class="form-control"></td>
+        </tr>
+        <tr>
+            <td>User Name</td>
+            <td><input type="text" name="uname" class="form-control"></td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td><input type="text" name="email" class="form-control"></td>
+        </tr>
+        <tr>
+            <td>Password</td>
+            <td><input type="password" name="passwd" class="form-control"></td>
+        </tr>
+        <tr>
+            <td>Confirmed Password</td>
+            <td><input type="text" name="cpasswd" class="form-control"></td>
+        </tr>
+        <tr>
+            <td><button type="submit" value="Register" class="btn btn-success">Register</button></td>
+        </tr>
+    </table>
+    {% for m in messages %}
+        <h1>{{m}}</h1>
+    {% endfor %}
+</form>
+</div>
+</body>
+</html>

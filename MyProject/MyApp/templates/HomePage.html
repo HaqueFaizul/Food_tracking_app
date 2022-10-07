@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Homepage</title>
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <script src="{% static 'js/script.js' %}"></script>
+</head>
+<body>
+<h1>Welcome to HomePage</h1>
+<a href="{% url 'about' %}">Go to about us page</a>
+<p>Hello {{saname}} you are inside the Homepage</p>
+
+{% if num1 > num2 %}
+<p>{{num1}} is bigger</p>
+{% else %}
+<p>{{num2}} is bigger</p>
+{% endif %}
+{% for i in list %}
+    {{i}}
+{% endfor %}
+<img src="{% static 'images/ECA.jpg' %}" height="400" width="500">
+<img src="{% static 'images/making-an-impact.jpg' %}" height="400" width="500">
+</body>
+</html>

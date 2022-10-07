@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajax in Django</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+<h1>Django using Ajax</h1>
+Country:
+<select name="country" id="cdb">
+    <option>Select country</option>
+    {% for c in country %}
+        <option value="{{c.id}}">{{c.country_name}}</option>
+    {% endfor %}
+</select>
+
+State:
+<select name="state" id="sdb">
+
+</select>
+<script>
+    $("#cdb").change(function(){
+        //alert('Hello')
+        var countryId=$(this).val();
+        //alert(countryId);
+
+        $.ajax({
+            url:'getState',
+            data:{
+               'country':countryId
+            },
+            success:function(data)
+            {
+                $("#sdb").html(data); //
+            }
+        });
+    });
+</script>
+
+
+
+</body>
+</html>

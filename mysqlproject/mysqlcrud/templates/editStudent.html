@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Student</title>
+</head>
+<body>
+<table>
+    <form action="/update/{{data.id}}" method="POST">
+        {% csrf_token %}
+        <tr>
+            <td>Student Name <input type="text" name="sname" value="{{data.name}}"></td>
+        </tr>
+        <tr>
+            <td>Student Roll Number <input type="text" name="sroll" value="{{data.roll_number}}"></td>
+        </tr>
+        <tr>
+            <td>Student Address <input type="text" name="sadd" value="{{data.address}}"></td>
+        </tr>
+
+        <tr>
+            <td>Gender:</td>
+            {% if data.gender == 'Male' %}
+                <td><input type="radio" name="gender" value="Male" checked>Male</td>
+                <td><input type="radio" name="gender" value="Female">Female</td>
+            {% elif data.gender == 'Female' %}
+                <td><input type="radio" name="gender" value="Male">Male</td>
+                <td><input type="radio" name="gender" value="Female" checked>Female</td>
+            {% endif %}
+        </tr>
+        <tr>
+            <td>Language Known:</td>
+            {% if 'English' in data.language %}
+                <td><input type="checkbox" name="language" value="English" checked >English</td>
+            {% else %}
+                <td><input type="checkbox" name="language" value="English">English</td>
+            {% endif %}
+            {% if 'Hindi' in data.language %}
+                <td><input type="checkbox" name="language" value="Hindi" checked >Hindi</td>
+            {% else %}
+                <td><input type="checkbox" name="language" value="Hindi" >Hindi</td>
+            {% endif %}
+            {% if 'Marathi' in data.language %}
+                <td><input type="checkbox" name="language" value="Marathi" checked >Marathi</td>
+            {% else %}
+                <td><input type="checkbox" name="language" value="Marathi">Marathi</td>
+            {% endif %}
+        </tr>
+        <tr>
+            <td>Country:</td>
+            {% if data.country == 'India' %}
+                <td><select name="country">
+                    <option> Select Country</option>
+                    <option value="India" selected>India</option>
+                    <option value="Russia">Russia</option>
+                    <option value="Israel">Israel</option>
+                </select>
+                    {% elif data.country == 'Russia' %}
+                    <td><select name="country">
+                    <option> Select Country</option>
+                    <option value="India" >India</option>
+                    <option value="Russia" selected>Russia</option>
+                    <option value="Israel">Israel</option>
+                </select>
+            {% elif data.country == 'Israel' %}
+                    <td><select name="country">
+                    <option> Select Country</option>
+                    <option value="India" >India</option>
+                    <option value="Russia" >Russia</option>
+                    <option value="Israel" selected>Israel</option>
+                </select>
+            {% endif %}
+                </td>
+        </tr>
+        <tr>
+            <td><button type="submit">Update</button></td>
+        </tr>
+    </form>
+</table>
+</body>
+</html>

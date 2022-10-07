@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit details of student</title>
+</head>
+<body>
+    <div class="container">
+        <form method="POST">
+            {% csrf_token %}
+            {{data.as_p}}
+            <button type="submit">UPDATE</button>
+        </form>
+    </div>
+</body>
+</html>
